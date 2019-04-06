@@ -12,7 +12,7 @@ public class Main {
 
         List<Event> events = Arrays.asList (
                 new Event(5,"Event 5", new Location(5, "Location 5", new City(5, "City 5"))),
-                new Event(1, "Event 1", new Location(1, "Location 1", new City(1, "City 1"))),
+                new Event(1,"Event 1", new Location(1, "Location 1", new City(1, "City 1"))),
                 new Event(2,"Event 2", new Location(2, "Location 2", new City(2, "City 2"))),
                 new Event(7,"Event 7", new Location(7, "Location 7", new City(7, "City 7"))),
                 new Event(3,"Event 3", new Location(3, "Location 3", new City(3, "City 3"))),
@@ -27,6 +27,10 @@ public class Main {
                         events.stream().limit(5).collect(Collectors.toList())
                 )
         );
+	
+	//get ordenados
+        events.sort(Comparator.comparing(Event::getName, String.CASE_INSENSITIVE_ORDER));
+        System.out.println(String.format("Lista ordenada : %s", events));
 
     }
 }
